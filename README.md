@@ -1,6 +1,6 @@
 # tex-manual-translation
 
-> An [Oh My Pi](https://github.com/nicepkg/oh-my-pi) skill that translates English LaTeX documentation into Chinese — word by word, with compile-time guardrails.
+> An AI agent skill that translates English LaTeX documentation into Chinese — word by word, with compile-time guardrails.
 
 ## Overview
 
@@ -16,11 +16,30 @@ This skill guides an AI agent through translating English LaTeX user manuals int
 
 ## Installation
 
+### Oh My Pi
+
 ```bash
 omp plugin install tex-manual-translation
 ```
 
-Once installed, OMP auto-discovers the skill. It activates when you say "翻译 tex", "翻译 LaTeX 手册", "中文化手册", "translate LaTeX to Chinese", or "把英文文档翻译成中文". You can also invoke it manually via `/skill:tex-manual-translation`.
+### npm
+
+```bash
+npm install tex-manual-translation
+```
+
+Then copy `skills/tex-manual-translation/` into your agent's skills directory.
+
+### Manual
+
+Copy the `skills/tex-manual-translation/` folder into your AI agent's skills directory:
+
+- **Claude Code**: `~/.claude/skills/tex-manual-translation/`
+- **Codex**: `~/.codex/skills/tex-manual-translation/`
+- **OMP**: `~/.omp/skills/tex-manual-translation/`
+- **Custom**: any directory your agent scans for `SKILL.md` files
+
+The skill auto-activates when you say "翻译 tex", "翻译 LaTeX 手册", "中文化手册", "translate LaTeX to Chinese", or "把英文文档翻译成中文".
 
 ## Workflow
 
@@ -104,7 +123,7 @@ tex-manual-translation/
 
 ## Requirements
 
-- [Oh My Pi](https://github.com/nicepkg/oh-my-pi) — runtime
+- Any AI agent that supports skill-based workflows (Claude Code, Codex, Oh My Pi, etc.)
 - Python 3.8+ — validation scripts (standard library only)
 - LaTeX distribution (TeX Live / MiKTeX) — compile verification
 - `ctex` package — Chinese typesetting support
