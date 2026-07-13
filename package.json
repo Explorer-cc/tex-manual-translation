@@ -1,6 +1,6 @@
 {
   "name": "tex-manual-translation",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Installable Claude, Codex, and OMP skill for translating English LaTeX documentation into Chinese.",
   "license": "MIT",
   "type": "module",
@@ -35,6 +35,6 @@
     "access": "public"
   },
   "omp": {
-    "version": "1.1.0"
+    "version": "1.2.0"
   }
 }
