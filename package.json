@@ -1,0 +1,20 @@
+{
+  "name": "tex-manual-translation",
+  "version": "1.0.0",
+  "description": "将英文 LaTeX 文档翻译为中文的 OMP 技能，含标点检查脚本和术语管理",
+  "keywords": [
+    "omp",
+    "omp-plugin",
+    "latex",
+    "translation",
+    "chinese",
+    "ctex"
+  ],
+  "license": "MIT",
+  "files": [
+    "skills/"
+  ],
+  "omp": {
+    "version": "1.0.0"
+  }
+}
