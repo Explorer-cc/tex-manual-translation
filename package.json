@@ -1,29 +1,39 @@
 {
   "name": "tex-manual-translation",
   "version": "1.1.0",
-  "description": "将英文 LaTeX 文档翻译为中文的 OMP 技能，含标点检查脚本和术语管理",
+  "description": "Installable Claude, Codex, and OMP skill for translating English LaTeX documentation into Chinese.",
+  "license": "MIT",
   "type": "module",
+  "bin": {
+    "tex-manual-translation": "bin/tex-manual-translation.mjs"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "skills/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "node scripts/validate.mjs && python scripts/test_scripts.py",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "doctor": "node bin/tex-manual-translation.mjs doctor"
   },
+  "keywords": [
+    "claude",
+    "codex",
+    "omp",
+    "skill",
+    "latex",
+    "translation",
+    "chinese"
+  ],
   "engines": {
     "node": ">=18"
   },
-  "keywords": [
-    "omp",
-    "omp-plugin",
-    "latex",
-    "translation",
-    "chinese",
-    "ctex"
-  ],
-  "license": "MIT",
-  "author": "Kasmir",
-  "files": [
-    "skills/",
-    "scripts/"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "omp": {
     "version": "1.1.0"
   }
