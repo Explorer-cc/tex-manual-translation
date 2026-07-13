@@ -1,7 +1,15 @@
 {
   "name": "tex-manual-translation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "将英文 LaTeX 文档翻译为中文的 OMP 技能，含标点检查脚本和术语管理",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/validate.mjs && python scripts/test_scripts.py",
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "keywords": [
     "omp",
     "omp-plugin",
@@ -13,9 +21,10 @@
   "license": "MIT",
   "author": "Kasmir",
   "files": [
-    "skills/"
+    "skills/",
+    "scripts/"
   ],
   "omp": {
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }
