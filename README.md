@@ -16,23 +16,11 @@ This skill guides an AI agent through translating English LaTeX user manuals int
 
 ## Installation
 
-### Oh My Pi
-
-```bash
-omp plugin install tex-manual-translation
-```
-
-### npm
-
 ```bash
 npm install tex-manual-translation
 ```
 
-Then copy `skills/tex-manual-translation/` into your agent's skills directory.
-
-### Manual
-
-Copy the `skills/tex-manual-translation/` folder into your AI agent's skills directory:
+Then copy `skills/tex-manual-translation/` into your AI agent's skills directory:
 
 - **Claude Code**: `~/.claude/skills/tex-manual-translation/`
 - **Codex**: `~/.codex/skills/tex-manual-translation/`
