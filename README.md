@@ -1,6 +1,6 @@
 # TeX Manual Translation Skill
 
-An installable Claude and Codex skill for translating English LaTeX documentation into Chinese.
+An installable skill for translating English LaTeX documentation into Chinese — works with any AI coding agent that loads a skills directory (Claude, Codex, and others).
 
 The skill covers scope survey, CJK environment setup, terminology management, word-by-word translation, compile verification with validation scripts, and large-document parallelism. It catches real LaTeX + CJK pitfalls such as `\LaTeX\，` triggering `Undefined control sequence` errors.
 
@@ -154,7 +154,7 @@ Test the packed artifact before publishing:
 
 ```bash
 npm pack
-npx ./tex-manual-translation-1.2.0.tgz install --target ./tmp/skills --dry-run
+npx ./tex-manual-translation-1.4.0.tgz install --target ./tmp/skills --dry-run
 ```
 
 ## License

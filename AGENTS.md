@@ -2,15 +2,15 @@
 
 ## Project Overview
 
-**tex-manual-translation** is an [Oh My Pi](https://github.com/nicepkg/oh-my-pi) plugin that ships a single skill for translating English LaTeX documentation into Chinese. The skill guides an AI agent through a 7-step workflow — from scope survey to large-document parallelism — with compile-time gate conditions and three Python validation scripts that catch common LaTeX + CJK pitfalls.
+**tex-manual-translation** is an npm package that ships a single skill for translating English LaTeX documentation into Chinese. The skill works with any AI coding agent and guides it through a 7-step workflow — from scope survey to large-document parallelism — with compile-time gate conditions and three Python validation scripts that catch common LaTeX + CJK pitfalls.
 
-Published to npm as `tex-manual-translation`. Users install via `omp plugin install tex-manual-translation`.
+Published to npm as `tex-manual-translation`. Install with `npx tex-manual-translation install claude` (or `codex`), or copy the skill folder into any agent's skills directory.
 
 ## Architecture & Data Flow
 
 ```
-package.json (npm manifest + omp plugin marker)
-  └── skills/tex-manual-translation/     ← OMP discovers skills one level under skills/
+package.json (npm manifest)
+  └── skills/tex-manual-translation/     ← agents discover skills one level under skills/
        ├── SKILL.md                       ← Controller: 7-step workflow, gates, reference links
        ├── scripts/                       ← Layered linters (called during step 6)
        │   ├── check_env_balance.py       ← \begin{}/\end{} pair checker
@@ -33,7 +33,7 @@ package.json (npm manifest + omp plugin marker)
 
 | Directory | Purpose |
 |---|---|
-| `skills/tex-manual-translation/` | The skill itself — discovered by OMP's `omp-plugins` provider via one-level scan of `skills/<name>/SKILL.md` |
+| `skills/tex-manual-translation/` | The skill itself — agents discover it via a one-level scan of `skills/<name>/SKILL.md` |
 | `skills/.../scripts/` | Three standalone Python linters (stdlib only, no dependencies) |
 | `skills/.../references/` | Four Markdown convention docs loaded on demand by the AI agent |
 | `scripts/` | Package-level tooling: `validate.mjs` (skill structure validator) and `test_scripts.py` (test harness). Not published to npm. |
@@ -97,8 +97,8 @@ if __name__ == "__main__":
 
 | File | Role |
 |---|---|
-| `package.json` | npm manifest. `files: ["skills/"]` controls what gets published. `omp` field marks it as an OMP plugin. |
-| `skills/tex-manual-translation/SKILL.md` | Skill entry point — the 7-step workflow. OMP reads this when the skill triggers. |
+| `package.json` | npm manifest. `files` controls what gets published (`bin/`, `scripts/`, `skills/`, README, LICENSE). |
+| `skills/tex-manual-translation/SKILL.md` | Skill entry point — the 7-step workflow. The agent reads this when the skill triggers. |
 | `skills/.../references/punctuation.md` | LaTeX mixed CJK punctuation rules with correct/incorrect code examples. |
 | `skills/.../references/editing-rules.md` | Editing golden rule: never lose `\begin{}`/`\end{}` markers during line replacement. |
 | `skills/.../references/terminology.md` | Keep-English vs translate decision rules, glossary template. |

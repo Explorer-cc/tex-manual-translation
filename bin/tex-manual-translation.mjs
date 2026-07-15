@@ -74,7 +74,7 @@ function parseInstallArgs(args) {
 
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
-    if (arg === "codex" || arg === "claude" || arg === "omp") {
+    if (arg === "codex" || arg === "claude") {
       options.client = arg;
     } else if (arg === "--target") {
       const value = args[index + 1];
@@ -102,9 +102,6 @@ function defaultSkillsDir(client) {
   if (client === "claude") {
     return join(homedir(), ".claude", "skills");
   }
-  if (client === "omp") {
-    return join(homedir(), ".omp", "skills");
-  }
   throw new Error(`Unsupported client: ${client}`);
 }
 
@@ -130,14 +127,13 @@ function printHelp() {
   console.log(`tex-manual-translation
 
 Usage:
-  tex-manual-translation install [claude|codex|omp] [--target <dir>] [--force] [--dry-run]
+  tex-manual-translation install [claude|codex] [--target <dir>] [--force] [--dry-run]
   tex-manual-translation doctor
   tex-manual-translation help
 
 Examples:
   tex-manual-translation install claude
   tex-manual-translation install codex --target ~/.codex/skills
-  tex-manual-translation install omp --force
   tex-manual-translation install --target /tmp/skills --dry-run
 `);
 }
